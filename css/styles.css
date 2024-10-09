@@ -511,10 +511,7 @@ overflow: hidden;
   fill: #f4f4fd;
 }
 /* ------------/footer section ------------*/
-.modal-backdrop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -525,50 +522,59 @@ overflow: hidden;
   opacity: 0;
   pointer-events: none;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-backdrop.is-open{
+.backdrop.is-open{
   opacity: 1;
   pointer-events: auto;
 }
 
 .modal {
   display: block;
-  position: relative;
+  position: absolute;
   border-radius: 4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 408px;
   background: #fcfcfc;
-  height: 80%;
-  max-height: 584px;
-  overflow: auto;
+  /* height: 100%; */
+  min-height: 584px;
+  /* overflow: auto; */
   padding: 72px 24px 24px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);*/
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.backdrop:not(.is-open) .modal {
+  transform: translate(-50%, -50%) scale(1,5);
 }
 
 .modal-close-btn {
   /* display: flex;
-  align-items: center;
-  justify-content: center; */
+  justify-items: center;
+  align-items: center; */
   position: absolute;
   right: 24px;
   top: 24px;
-  width: 24px;
+  width: 24px; 
   height: 24px;
   border-radius: 50%; 
-  border: 1px solid #d0d2e3;
-  /* background-color: #d0d2e3; */
-  background-color: #e7e9fc;
-  /* fill: #2e2f42;  */
-   
-/* fill: #e7e9fc; */
- /* stroke-width: 1px;  
-stroke: rgba(0, 0, 0, 0.1);  */
-line-height: 0;
+ ` background-color: #e7e9fc;
+  line-height: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .modal-close-btn:hover,
 .modal-close-btn:focus {
   background: #404bbf;
   fill: #fff;
+  border: none;
 } 
 
 .modal-title {
@@ -579,6 +585,7 @@ line-height: 0;
   text-align: center;
   color: #2e2f42;
   margin: 0 auto 8px;
+  margin-bottom: 16px; 
 }
 
 .modal-title .capital-word {
