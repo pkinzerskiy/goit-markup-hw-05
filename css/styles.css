@@ -770,9 +770,9 @@ img {
   /* fill: black; */
 }
 
-.modal-input-checbox:hover + .modal-label-checbox > .modal-custom-checkbox {
+/* .modal-input-checbox:hover + .modal-label-checbox > .modal-custom-checkbox {
   border: 1px solid #4d5ae5;
-}
+} */
 
 .modal-label-checbox {
   font-size: 12px;
