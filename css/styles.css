@@ -542,7 +542,7 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: 16px;
+  /* gap: 16px;` */
   min-width: 165px;
   height: 40px;
   font-family: "Roboto", sans-serif;
